@@ -67,6 +67,34 @@ body {
     max-height: 90%;
 }
 
+/* Strzałki */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 50px;
+    color: white;
+    background: rgba(0,0,0,0.4);
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+    z-index: 1001;
+}
+
+.arrow:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+.arrow.left {
+    left: -60px; /* poza obrazkiem, ale w lightboxie */
+}
+
+.arrow.right {
+    right: -60px;
+}
+
 .image-wrapper img {
     width: auto;
     height: auto;
