@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeria zdjęć</title>
-
+    <title>Galeria</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="gallery">
-    <img src="img/palac_front.jpg" alt="Zdjęcie 1" loading="lazy">
-    <img src="img/palac_side1.jpg" alt="Zdjęcie 2" loading="lazy">
-    <img src="img/Ilowa_palac.jpg" alt="Zdjęcie 3" loading="lazy">
+    <img src="img/palac_front.jpg" alt="">
+    <img src="img/palac_side1.jpg" alt="">
+    <img src="img/Ilowa_palac.jpg" alt="">
 </div>
 
 <div class="lightbox" id="lightbox">
     <span class="close" id="close">✕</span>
-    <img id="lightbox-img" src="">
+
+    <div class="image-wrapper">
+        <img id="lightbox-img" src="">
+    </div>
 </div>
 
 <script src="script.js"></script>
