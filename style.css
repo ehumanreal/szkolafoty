@@ -1,14 +1,29 @@
 body {
     margin: 0;
     font-family: sans-serif;
+    background-color: #222; /* ciemne tło całej strony */
 }
 
 /* GALERIA SIATKA */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
-    padding: 10px;
+    gap: 15px; /* odstęp między miniaturkami */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 1200px;
+    margin: 20px auto;
+    
+    /* ciemny wzorek tła */
+    background-color: #333;
+    background-image: 
+        linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255,255,255,0.05) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.05) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.05) 75%);
+    background-size: 40px 40px;
+    background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3); /* delikatny cień galerii */
 }
 
 .gallery img {
@@ -16,15 +31,16 @@ body {
     height: 150px;
     object-fit: cover;
     cursor: pointer;
-    border-radius: 5px;
-    transition: transform 0.2s;
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .gallery img:hover {
     transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
 
-/* LIGHTBOX - przyciemnione tło i scroll */
+/* LIGHTBOX pozostaje bez zmian */
 .lightbox {
     position: fixed;
     top: 0;
@@ -34,26 +50,23 @@ body {
     background: rgba(0,0,0,0.7);
     backdrop-filter: blur(5px);
     display: none;
-    overflow: auto;  /* scroll jeśli zdjęcie za duże */
+    overflow: auto;
     padding: 20px;
     box-sizing: border-box;
     z-index: 999;
 }
 
-/* aktywny lightbox */
 .lightbox.active {
     display: block;
 }
 
-/* wrapper obrazka */
 .image-wrapper {
     position: relative;
-    margin: 0 auto; /* centrowanie */
-    max-width: 100%;
-    max-height: 100%;
+    margin: 0 auto;
+    max-width: 90%;
+    max-height: 90%;
 }
 
-/* obrazek - dopasowanie do ekranu */
 .image-wrapper img {
     width: auto;
     height: auto;
@@ -65,7 +78,6 @@ body {
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
-/* X - zawsze w prawym górnym rogu obrazka */
 .close {
     position: absolute;
     top: 10px;
