@@ -1,83 +1,76 @@
-* {
-    box-sizing: border-box;
-}
-
 body {
     margin: 0;
-    background: #0f172a;
-    font-family: system-ui, sans-serif;
+    font-family: sans-serif;
 }
 
+/* GALERIA */
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 16px;
-    padding: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
 }
 
 .gallery img {
-    width: 100%;
-    height: 220px;
+    width: 200px;
+    height: 150px;
     object-fit: cover;
-    border-radius: 14px;
     cursor: pointer;
-    transition: transform .3s;
+    border-radius: 5px;
+    transition: transform 0.2s;
 }
 
 .gallery img:hover {
-    transform: scale(1.04);
+    transform: scale(1.05);
 }
 
+/* LIGHTBOX */
 .lightbox {
     position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.9);
-    display: none;
-    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7); /* przyciemnione tło */
+    backdrop-filter: blur(5px); /* blur dla tła */
+    display: none; /* ukryte domyślnie */
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
 }
 
 .lightbox.active {
-    display: block;
-}
-
-.close {
-    position: fixed;
-    top: 18px;
-    right: 18px;
-    width: 44px;
-    height: 44px;
-    background: rgba(0, 0, 0, 0.65);
-    color: #fff;
-    font-size: 26px;
-    font-weight: 600;
-    border-radius: 50%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 3;
-    box-shadow: 0 8px 24px rgba(0,0,0,.5);
-    transition: background .2s, transform .2s;
-}
-
-.close:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: scale(1.1);
 }
 
 .image-wrapper {
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    touch-action: pinch-zoom;
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
 }
 
-#lightbox-img {
-    max-width: 100%;
-    max-height: 100%;
-    transform-origin: center;
-    transition: transform .15s ease-out;
+.image-wrapper img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* PRZYCISK ZAMYKANIA */
+.close {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 30px;
+    color: white;
+    background: rgba(0,0,0,0.6);
+    border-radius: 50%;
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background 0.2s;
+}
+
+.close:hover {
+    background: rgba(255,0,0,0.8);
 }
