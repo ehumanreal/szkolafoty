@@ -3,20 +3,20 @@ const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const closeBtn = document.getElementById('close');
 
-// kliknięcie w zdjęcie galerii
+// Kliknięcie miniaturki → otwórz lightbox
 galleryImages.forEach(img => {
     img.addEventListener('click', () => {
-        lightboxImg.src = img.src; // wstaw obrazek do lightboxa
-        lightbox.classList.add('active'); // pokaż lightbox
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
     });
 });
 
-// zamykanie przyciskiem X
+// Zamknij X
 closeBtn.addEventListener('click', () => {
     lightbox.classList.remove('active');
 });
 
-// zamykanie po kliknięciu w tło (poza obrazkiem)
+// Zamknij klikając w tło poza obrazkiem
 lightbox.addEventListener('click', (e) => {
     if(e.target === lightbox) {
         lightbox.classList.remove('active');
