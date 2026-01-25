@@ -5,9 +5,9 @@ const closeBtn = document.getElementById('close');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
 
-let currentIndex = 0; // indeks aktualnego zdjęcia
+let currentIndex = 0;
 
-// otwieranie lightboxa po kliknięciu miniaturki
+// otwieranie powiększonego widoku po kliknięciu miniaturki
 galleryImages.forEach((img, index) => {
     img.addEventListener('click', () => {
         currentIndex = index;
@@ -16,26 +16,26 @@ galleryImages.forEach((img, index) => {
     });
 });
 
-// zamykanie X
+// zamykanie widoku przez przycisk X
 closeBtn.addEventListener('click', () => {
     lightbox.classList.remove('active');
 });
 
-// zamykanie po kliknięciu w tło
+// zamykanie widoku po kliknięciu w czarne tło
 lightbox.addEventListener('click', (e) => {
     if(e.target === lightbox) {
         lightbox.classList.remove('active');
     }
 });
 
-// przejście do poprzedniego zdjęcia
+// nawigacja do poprzedniego zdjęcia
 prevBtn.addEventListener('click', (e) => {
-    e.stopPropagation(); // zatrzymuje kliknięcie, żeby nie zamknęło lightboxa
+    e.stopPropagation();
     currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
     lightboxImg.src = galleryImages[currentIndex].src;
 });
 
-// przejście do następnego zdjęcia
+// nawigacja do następnego zdjęcia
 nextBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     currentIndex = (currentIndex + 1) % galleryImages.length;

@@ -1,10 +1,11 @@
+/* główne style strony */
 body {
     margin: 0;
     font-family: sans-serif;
     background-color: #222; /* ciemne tło całej strony */
 }
 
-/* GALERIA SIATKA */
+/* galeria siatka miniaturek */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -26,6 +27,7 @@ body {
     box-shadow: 0 2px 10px rgba(0,0,0,0.3); /* delikatny cień galerii */
 }
 
+/* styling miniaturek zdjęć */
 .gallery img {
     width: 100%;
     height: 150px;
@@ -35,12 +37,13 @@ body {
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
+/* efekt hover na miniaturkach */
 .gallery img:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
 
-/* LIGHTBOX pozostaje bez zmian */
+/* lightbox do powiększania zdjęć */
 .lightbox {
     position: fixed;
     top: 0;
@@ -67,7 +70,7 @@ body {
     max-height: 90%;
 }
 
-/* Strzałki */
+/* strzałki do nawigacji między zdjęciami */
 .arrow {
     position: absolute;
     top: 50%;
